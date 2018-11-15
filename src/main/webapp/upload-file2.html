@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Mash Able - Premium Admin Template</title>
+<!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="Phoenixcoded">
+<meta name="keywords"
+	content=", Flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+<meta name="author" content="Phoenixcoded">
+<!-- Favicon icon -->
+
+<link
+	href="https://fonts.googleapis.com/css?family=Mada:300,400,500,600,700"
+	rel="stylesheet">
+<!-- Required Fremwork -->
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap.min.css">
+<!-- jquery file upload Frame work -->
+
+<!-- ico font -->
+<link rel="stylesheet" type="text/css"
+	href="css/icofont.css">
+<!-- flag icon framework css -->
+
+<!-- Style.css -->
+<link rel="stylesheet" type="text/css" href="assets/css/style4.css">
+
+
+
+<link rel="stylesheet" type="text/css"
+	href="css/sweetalert.css" />
+	<link rel="stylesheet" type="text/css"
+	href="dropzone/dropzone.css" />
+<style>
+.dropzone{
+background: url(img/upload.jpg) no-repeat;
+    background-size: cover;    border: 2px dashed #008081;
+    border-radius: 5%;
+}
+.btn-primary {
+	background-color: #008081;
+	border: #008081;
+}
+
+.card {
+	border-top: 4px solid #FCB300;
+}
+
+.card .card-header .card-header-right {
+	background: #FCB300;
+	color: #ffffff;
+}
+
+.md-tabs .nav-link.active {
+	color: #008081 !important;
+}
+
+.card h5 {
+	color: #008081;
+	font-size: 18px;
+}
+
+.btn-default {
+	background-color: #FCB300;
+	border: #FCB300;
+	transition: border 1s;
+	-webkit-transition: border 1s; /* Safari 3.1 to 6.0 */
+}
+
+.btn-default:hover {
+	background-color: #FFFFFF;
+	border: 2px solid #FCB300;
+	color: #FCB300;
+}
+
+.modal-content {
+	border: 3px solid #008081;
+}
+</style>
+</head>
+
+<body>
+
+	<!-- Pre-loader start -->
+	<div class="theme-loader">
+		<div class="ball-scale">
+			<div></div>
+		</div>
+	</div>
+	<!-- Pre-loader end -->
+	<div id="response"></div>
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
+
+		
+				<div class="navbar-wrapper">
+					
+					<div class="pcoded-content">
+						<div class="pcoded-inner-content"
+							style="background: url('./assets/images/new/back.png') no-repeat; background-size: cover; background-attachment: fixed;">
+
+							<!-- Main-body start -->
+							<div class="main-body">
+								<div class="page-wrapper">
+									<!-- Page-header start -->
+									<div class="page-header">
+										<div class="page-header-title page-header-custom-title">
+											<h4>Candidate List File Upload</h4>
+										</div>
+										
+									</div>
+									<!-- Page-header end -->
+									<!-- Page-body start -->
+									<div class="page-body">
+										<div class="col-12">
+											<!-- Nav tabs -->
+											
+											<!-- Tab panes -->
+											<div class="tab-content">
+												<div class="tab-pane active" id="home8" role="tabpanel">
+													<!-- File upload card start -->
+													<div class="card">
+														<div class="card-header">
+															<h5>Upload File</h5>
+															
+														</div>
+														
+														<div class="card-block">
+															<div class="col-sm-12" id="upload-background">
+																<form action="/file-upload" class="dropzone"
+																	id="dropzone3">
+																	
+																</form>
+															</div>
+														</div>
+													</div>
+													<!-- File upload card end -->
+
+													
+
+
+												</div>
+											
+											</div>
+										</div>
+									</div>
+									<!-- Page-body end -->
+								</div>
+							</div>
+							<!-- Main-body end -->
+							<div id="styleSelector"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	
+
+	<script src="lib/dropzone/dropzone.js"></script>
+	<script type="text/javascript"
+		src="js/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="js/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript"
+		src="js/bootstrap.min.js"></script>
+	
+	<!-- i18next.min.js -->
+	<script type="text/javascript"
+		src="js/sweetalert.min.js"></script>
+
+	<script>
+		Dropzone.autoDiscover = false;
+		$(document)
+				.ready(
+						function() {
+							
+
+							var documentData = new FormData();
+							documentData.append('myfiles',
+									$('input#dropzone3.dropzone')[0]);
+							console.log(documentData);
+							var myDropzoneOptions1 = {
+								url : "rest/hello/virus_scan",
+								acceptedFiles : ".xlsx,.pdf",
+								maxFiles : "1",
+								clickable : true,
+								uploadMultiple : false,
+								dictDefaultMessage : "<center><span><i class='icon-jfi-cloud-up-o' style='font-size:4em'></i></span><br/><h1>Upload your data here</h1></center>",
+								addRemoveLinks : true,
+								init : function() {
+
+									this.on("sending", function(file, xhr,
+											formData) {
+										console.log(file);
+										console.log(xhr);
+										console.log(formData);
+										formData.append("status", 'new');
+										formData.append("user_id", 1);
+
+									});
+
+									this
+											.on(
+													"success",
+													function(file, responseText) {
+														console
+																.log(responseText);
+														console.log(Cookies
+																.get());
+														if (responseText == "Invalid JSON response from server.") {
+															swal(
+																	{
+																		title : "Sorry",
+																		text : "Something Went wrong",
+																		type : "error",
+																		showCancelButton : false,
+																		confirmButtonClass : "btn-danger",
+																		confirmButtonText : "OK",
+																		closeOnConfirm : true
+																	},
+																	function() {
+																		myDropzone1
+																				.removeAllFiles();
+																	});
+														} else {
+															
+														}
+													});
+								}
+
+							};
+							var myDropzone1 = new Dropzone("#dropzone3",
+									myDropzoneOptions1);
+							
+						})
+
+
+	</script>
+</body>
+
+</html>
